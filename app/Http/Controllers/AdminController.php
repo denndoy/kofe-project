@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coffee;
+use App\Models\order;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -67,6 +69,58 @@ class AdminController extends Controller
         $data->save();
         return redirect('view_coffee');
     }
+
+    public function orders()
+    {
+        $data = Order::all();
+        return view('admin.order',compact('data'));
+    }
+
+    public function on_the_way($id)
+    {
+
+        $data = Order::find($id);
+
+        $data->delivery_status = "on the way";
+
+        $data->save();
+
+        return redirect()->back();
+
+    }
+
+    public function delivered($id)
+    {
+
+        $data = Order::find($id);
+
+        $data->delivery_status = "Delivered";
+
+        $data->save();
+
+        return redirect()->back();
+
+    }
+
+    public function canceled($id)
+    {
+
+        $data = Order::find($id);
+
+        $data->delivery_status = "Canceled";
+
+        $data->save();
+
+        return redirect()->back();
     
     
+    }
+
+    public function reservations()
+    {
+        $book = Book::all();
+
+        return view('admin.reservations',compact('book'));
+    }
+
 }

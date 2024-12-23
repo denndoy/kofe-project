@@ -11,7 +11,7 @@
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                <li class="active"><a href="{{url('home')}}"> <i class="icon-home"></i>Home </a></li>
                 
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Coffee</a>
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -19,12 +19,17 @@
                         <li><a href="{{ url('view_coffee') }}">View Coffee</a></li>
                     </ul>
                 </li>
-                <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
-            </ul><span class="heading">Extras</span>
-            <ul class="list-unstyled">
-                <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
-            </ul>
+                <li><a href="{{url('orders')}}"> <i 
+                class="icon-logout"></i>Orders 
+            </a>
+        </li>
+
+        <li><a href="{{url('reservations')}}"> <i 
+                class="icon-logout"></i>Reservations
+            </a>
+        </li>
+
+
+            
         </nav>
         <!-- Sidebar Navigation end-->
