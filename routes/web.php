@@ -1,10 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ProductController;
 
-Route::get('/', [HomeController::class, 'my_home']);
+Route::get('/', [HomeController::class, 'my_home']) -> name('home.index');
+Route::get('/about', [AboutController::class, 'my_about']);
+Route::get('/gallery', [GalleryController::class, 'my_gallery']);
+Route::get('/book_table', [BookController::class, 'my_booktable']);
+Route::get('/product', [ProductController::class, 'my_product']);
 
 Route::get('/home', [HomeController::class, 'index']);
 

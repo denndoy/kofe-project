@@ -60,6 +60,7 @@ class HomeController extends Controller
             $data->userid = Auth::user()->id;
 
             $data->save();
+            session()->flash('success', 'Product has been added to the cart');
             return redirect()->back();
         } else {
             return redirect("login");
@@ -68,11 +69,11 @@ class HomeController extends Controller
 
     public function my_cart()
     {
-        $user_id = Auth()->user()->id;
+        $user_id = Auth::user()->id;
         
         $data = Cart::where('userid', '=', $user_id)->get();
         
-        return view('home.my_cart',compact('data'));
+        return view('cart.index',compact('data'));
     }
 
 
@@ -89,7 +90,7 @@ class HomeController extends Controller
     public function confirm_order(Request $request)
     {
 
-        $user_id = Auth()->user()->id;
+        $user_id = Auth::user()->id;
 
         $cart = Cart::where('userid','=', $user_id)->get();
 
