@@ -10,9 +10,9 @@
 
             <!-- Status Message -->
             @session('status')
-                <div class="mb-4 font-medium text-sm text-success">
-                    {{ $value }}
-                </div>
+            <div class="mb-4 font-medium text-sm text-success">
+                {{ $value }}
+            </div>
             @endsession
 
             <form method="POST" action="{{ route('login') }}">
@@ -39,16 +39,26 @@
                 <div class="d-flex justify-content-between">
                     <!-- Forgot Password Link -->
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="text-decoration-none text-muted">
-                            {{ __('Forgot your password?') }}
-                        </a>
+                    <a href="{{ route('password.request') }}" class="text-decoration-none text-muted">
+                        {{ __('Forgot your password?') }}
+                    </a>
                     @endif
-
                     <!-- Login Button -->
-                    <button type="submit" class="btn btn-primary ms-4">
-                        {{ __('Log in') }}
-                    </button>
+                    <div>
+                        <button type="submit" class="btn btn-primary ms-4">
+                            {{ __('Log in') }}
+                        </button>
+                    </div>
                 </div>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ route('register') }}" class="text-decoration-none text-muted">
+                        {{ __('Dont have account?') }}
+                    </a>
+                </div>
+                <a href="{{ route('register') }}" class="btn btn-primary">
+                    {{ __('Sign Up') }}
+                </a>
             </form>
         </div>
     </div>

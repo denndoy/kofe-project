@@ -18,7 +18,7 @@
                 <a class="nav-link" href="{{ url('book_table') }}">Book-Table</a>
             </li>
         </ul>
-        <a class="navbar-brand m-auto" href="#">
+        <a class="navbar-brand m-auto" href="{{ route('home.index') }}">
             <img src="assets/imgs/kofe-logo.png" class="brand-img" alt="">
             <span class="brand-txt">KOFE</span>
         </a>
